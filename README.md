@@ -19,9 +19,9 @@ aws configure
 ## Usage
 
 ```
-usage: mu.py [-h] [--with-pyc] [--zip-file ZIP_FILE] [--profile PROFILE]
-             [--zip-only]
-             [config]
+usage: mu [-h] [--with-pyc] [--zip-file ZIP_FILE] [--profile PROFILE]
+          [--zip-only]
+          [config]
 
 positional arguments:
   config               JSON file describing this lambda function. Default

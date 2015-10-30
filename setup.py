@@ -64,7 +64,7 @@ except:
 
 setup(
     name='ansible-testing',
-    version=find_version('mu.py'),
+    version=find_version('mu/__init__.py'),
     description=('Python module and CLI to package and upload python lambda '
                  'functions to AWS Lambda.'),
     long_description=long_description,

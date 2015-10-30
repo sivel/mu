@@ -335,7 +335,7 @@ class Mu:
 
 
 def main():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(prog='mu')
     parser.add_argument('config', nargs='?', default='lambda.json',
                         help='JSON file describing this lambda function. '
                              'Default %(default)s')

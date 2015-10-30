@@ -125,18 +125,19 @@ class Mu:
 
         session = tox.session.Session(config)
         self.venv = session.getvenv(name)
-        # self.venv = session.getvenv('python')
 
     def prepare_setuptools(self):
         dist = Distribution()
-        dist.script_name = 'mu'
+        dist.script_name = 'mu.py'
 
         self.sdist = setuptools.command.sdist.sdist(dist)
         self.sdist.filelist = FileList()
 
         self.build = build_py(dist)
-        self.build.packages = find_packages(**self.config_data.get('packages',
-                                                                   {}))
+        self.build.packages = []
+        packages = self.config_data.get('packages')
+        if packages is not None:
+            self.build.packages.extend(find_packages(**packages))
         self.build.py_modules = self.config_data.get('py_modules', [])
 
     def get_file_list(self):

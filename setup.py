@@ -54,6 +54,13 @@ try:
 except:
     long_description = ''
 
+try:
+    f = codecs.open('requirements.txt', encoding='utf-8')
+    requirements = f.read().splitlines()
+    f.close()
+except:
+    requirements = []
+
 
 setup(
     name='ansible-testing',
@@ -67,9 +74,7 @@ setup(
     url='https://github.com/sivel/mu',
     license='Apache License, Version 2.0',
     packages=find_packages(exclude=['tests', 'tests.*']),
-    install_requires=[
-        'ansible',
-    ],
+    install_requires=requirements,
     entry_points={
         'console_scripts': [
             'mu=mu:main',

@@ -4,7 +4,7 @@ Python module and CLI to package and upload python lambda functions to AWS Lambd
 ## Installation
 
 ```
-pip install mu
+pip install python-mu
 ```
 
 ## Configuration

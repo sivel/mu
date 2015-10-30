@@ -109,7 +109,8 @@ class Mu:
         return self.config_data
 
     def prepare_tox(self):
-        config = tox.session.prepare(None)
+        toxini = os.path.join(os.path.dirname(__file__), 'tox.ini')
+        config = tox.session.prepare(['-c', toxini])
         name = uuid.uuid4().hex
         envconfig = TestenvConfig(name, config, None, None)
         envconfig.envdir = local('%s/%s' % (config.toxworkdir, name))

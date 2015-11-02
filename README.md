@@ -34,3 +34,31 @@ optional arguments:
   --profile PROFILE    boto/awscli profile name. Default default
   --zip-only           Only create the ZIP file, do not upload
 ```
+
+## lambda.json
+
+```
+{
+    "name": "helloworld",
+    "description": "Hello, World!",
+    "region": "us-east-1",
+    "role": "arn:aws:iam::000000000000:role/lambda_basic_execution",
+    "handler": "helloworld.lambda_handler",
+    "memory_size": 128,
+    "timeout": 3,
+    "py_modules": [
+        "helloworld"
+    ],
+    "packages": {
+        "exclude": [
+            "tests",
+            "tests.*"
+        ]
+    },
+    "deps": [
+        "requests",
+        "-rrequirements.txt"
+    ],
+    "publish": true
+}
+```

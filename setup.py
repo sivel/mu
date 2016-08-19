@@ -80,6 +80,9 @@ setup(
             'mu=mu:main',
         ]
     },
+    package_data={
+        '': ['tox.ini'],
+    },
     classifiers=[
         'Development Status :: 4 - Beta',
         'Programming Language :: Python',

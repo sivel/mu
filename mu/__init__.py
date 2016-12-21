@@ -50,7 +50,7 @@ from tox.config import DepConfig, TestenvConfig
 import tox.session
 
 
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 __metaclass__ = type
 
 

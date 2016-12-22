@@ -50,7 +50,7 @@ from tox.config import DepConfig, TestenvConfig
 import tox.session
 
 
-__version__ = '1.0.1'
+__version__ = '1.0.2'
 __metaclass__ = type
 
 
@@ -146,6 +146,12 @@ class Mu:
 
         deps = self.config_data.get('deps', [])
         if deps:
+            try:
+                deps.remove('-I')
+            except ValueError:
+                pass
+            deps.insert(0, '-I')
+
             ixserver = self.venv.envconfig.config.indexserver['default']
             self.venv.create()
             self.venv.envconfig.deps = [DepConfig(dep, ixserver)

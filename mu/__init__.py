@@ -50,7 +50,7 @@ from tox.config import DepConfig, TestenvConfig
 import tox.session
 
 
-__version__ = '1.0.2'
+__version__ = '1.0.3'
 __metaclass__ = type
 
 
@@ -111,6 +111,7 @@ class Mu:
     def prepare_tox(self):
         toxini = os.path.join(os.path.dirname(__file__), 'tox.ini')
         config = tox.session.prepare(['-c', toxini])
+        config.toxworkdir = os.getcwd()
         name = uuid.uuid4().hex
         envconfig = TestenvConfig(name, config, None, None)
         envconfig.envdir = local('%s/%s' % (config.toxworkdir, name))
